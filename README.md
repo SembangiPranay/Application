@@ -98,15 +98,52 @@ This application uses the [NewsAPI](https://newsapi.org/) service:
 - Supports 150+ news sources
 - Coverage of 50+ countries
 
+## Scripts
+
+### Main Application
+- **news_feed.py** - Interactive command-line news feed application
+
+### Automated Scripts
+- **daily_runner.py** - Automated daily news fetcher (can be scheduled with cron)
+  ```bash
+  python daily_runner.py /path/to/output/directory
+  ```
+
+### Examples and Testing
+- **examples.py** - Usage examples demonstrating various features
+- **test_news_feed.py** - Test suite for the application
+
 ## Project Structure
 
 ```
 Application/
-├── news_feed.py          # Main application file
+├── news_feed.py          # Main interactive application
+├── daily_runner.py       # Automated daily news fetcher
+├── examples.py           # Usage examples
+├── test_news_feed.py     # Test suite
 ├── requirements.txt      # Python dependencies
 ├── .env.example         # Configuration template
 ├── .gitignore           # Git ignore rules
 └── README.md            # This file
+```
+
+## Scheduling Daily News (Optional)
+
+To automatically fetch news every day, you can schedule the `daily_runner.py` script:
+
+### Linux/Mac (using cron)
+```bash
+# Edit crontab
+crontab -e
+
+# Add this line to run daily at 8 AM
+0 8 * * * cd /path/to/Application && python3 daily_runner.py ~/daily_news
+```
+
+### Windows (using Task Scheduler)
+Create a scheduled task to run:
+```
+python C:\path\to\Application\daily_runner.py C:\path\to\output
 ```
 
 ## Contributing
