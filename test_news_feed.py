@@ -4,6 +4,8 @@ Test script for News Feed Application
 """
 
 import sys
+import tempfile
+import os
 from news_feed import NewsFeedApp
 
 
@@ -43,13 +45,12 @@ def test_news_feed_app():
     
     # Test 5: Save to file
     print("\n[Test 5] Save to file...")
-    test_filename = "/tmp/test_news.json"
+    test_filename = os.path.join(tempfile.gettempdir(), "test_news.json")
     try:
         app.save_to_file(demo_data, filename=test_filename)
         print(f"✓ Passed: News saved to {test_filename}")
         
         # Verify file exists
-        import os
         if os.path.exists(test_filename):
             print("✓ Passed: File exists")
             os.remove(test_filename)  # Clean up

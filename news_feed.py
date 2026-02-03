@@ -161,7 +161,7 @@ class NewsFeedApp:
                 try:
                     dt = datetime.fromisoformat(published_at.replace('Z', '+00:00'))
                     print(f"    Published: {dt.strftime('%Y-%m-%d %H:%M:%S')}")
-                except:
+                except (ValueError, AttributeError):
                     print(f"    Published: {published_at}")
             
             if article.get('url'):

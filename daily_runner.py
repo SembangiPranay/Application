@@ -11,12 +11,12 @@ from datetime import datetime
 from news_feed import NewsFeedApp
 
 
-def run_daily_news(output_dir='/tmp/daily_news', categories=None):
+def run_daily_news(output_dir='daily_news', categories=None):
     """
     Fetch and save daily news automatically.
     
     Args:
-        output_dir: Directory to save news files
+        output_dir: Directory to save news files (default: 'daily_news' in current directory)
         categories: List of categories to fetch (default: all major categories)
     """
     # Default categories if none specified
@@ -89,7 +89,7 @@ def run_daily_news(output_dir='/tmp/daily_news', categories=None):
 
 if __name__ == "__main__":
     # Parse command line arguments
-    output_dir = sys.argv[1] if len(sys.argv) > 1 else '/tmp/daily_news'
+    output_dir = sys.argv[1] if len(sys.argv) > 1 else 'daily_news'
     
     # Run daily news fetch
     run_daily_news(output_dir=output_dir)

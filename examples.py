@@ -6,6 +6,7 @@ Demonstrates various ways to use the news feed programmatically
 
 from news_feed import NewsFeedApp
 import os
+import tempfile
 
 
 def example_top_headlines():
@@ -64,7 +65,7 @@ def example_save_to_file():
     app.display_articles(data)
     
     # Save to file
-    filename = '/tmp/business_news.json'
+    filename = os.path.join(tempfile.gettempdir(), 'business_news.json')
     app.save_to_file(data, filename=filename)
     print(f"\nNews saved to: {filename}")
 
